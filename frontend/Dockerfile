@@ -16,8 +16,8 @@ RUN npm run build
 # Serve with nginx
 FROM nginx:alpine
 # Copy build files to nginx folder
-COPY --from=build /app/dist /user/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 # Expose port that container listens on
 EXPOSE 80
 # Start serving application
-CMD ["nginx", "-g", "deamon off;"]
+CMD ["nginx", "-g", "daemon off;"]
