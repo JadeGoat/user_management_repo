@@ -1,0 +1,23 @@
+# Stage 1 build
+# Use offical node image
+FROM node:18-alpine AS build
+# Set the working directory to /app
+WORKDIR /app
+# Copy package*.json to working directory
+COPY package*.json ./
+# Install dependencies
+RUN npm install
+# Copy the rest of the files to working directory 
+COPY . .
+# Build react application
+RUN npm run build
+
+# Stage 2 build
+# Serve with nginx
+FROM nginx:alpine
+# Copy build files to nginx folder
+COPY --from=build /app/dist /user/share/nginx/html
+# Expose port that container listens on
+EXPOSE 80
+# Start serving application
+CMD ["nginx", "-g", "deamon off;"]
