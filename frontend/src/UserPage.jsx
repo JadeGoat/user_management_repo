@@ -4,7 +4,7 @@ const UserPage = () => {
   return (
     <div>
         <h2>User management</h2>
-        <p>Here we will list all the users and manage users.</p>
+        <p>Here we will list all the users and manage user.</p>
     </div>
   )
 }
