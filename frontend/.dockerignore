@@ -1,0 +1,14 @@
+# react folders
+node_modules/
+
+# test folders
+logs/
+test/
+
+# exclude unnecessary file
+Dockerfile
+eslint.config.js
+README.md
+
+# exclude env file
+.env
